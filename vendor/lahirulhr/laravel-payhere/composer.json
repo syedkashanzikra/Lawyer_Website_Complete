@@ -1,0 +1,66 @@
+{
+    "name": "lahirulhr/laravel-payhere",
+    "description": "API integration for PayHere payment gateway in Sri Lanka",
+    "keywords": [
+        "lahirulhr",
+        "laravel",
+        "laravel-payhere"
+    ],
+    "homepage": "https://github.com/lahirulhr/laravel-payhere",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LaHiRu",
+            "email": "lahirulhr@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/contracts": "^9.0",
+        "spatie/laravel-package-tools": "^1.9.2"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.23",
+        "pestphp/pest-plugin-laravel": "^1.4",
+        "phpunit/phpunit": "^9.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lahirulhr\\PayHere\\": "src",
+            "Lahirulhr\\PayHere\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lahirulhr\\PayHere\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lahirulhr\\PayHere\\PayHereServiceProvider"
+            ],
+            "aliases": {
+                "PayHere": "Lahirulhr\\PayHere\\PayHereFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,7 @@
+[2023-07-10 14:25:04] local.INFO: {"code":206,"message":"Currency not available","trace":"PMNT0706.64ABC768.00015303","success":false,"payment_url":null}  
+[2023-07-10 14:26:27] local.INFO: {"code":206,"message":"Currency not available","trace":"PMNT0706.64ABC7BB.0001530C","success":false,"payment_url":null}  
+[2023-10-18 12:22:59] local.INFO: {"code":206,"message":"Currency not available","trace":"PMNT0706.652F80CB.0000010B","success":false,"payment_url":null}  
+[2023-10-26 11:30:45] local.INFO: {"code":206,"message":"Currency not available","trace":"PMNT0705.653A008D.00000980","success":false,"payment_url":null}  
+[2023-10-26 11:50:08] local.INFO: {"code":206,"message":"Currency not available","trace":"PMNT0705.653A0518.00000989","success":false,"payment_url":null}  
+[2023-10-26 11:59:39] local.INFO: {"code":206,"message":"Currency not available","trace":"PMNT0705.653A0753.0000098B","success":false,"payment_url":null}  
+[2023-10-26 12:00:54] local.INFO: {"code":1,"message":"Authentication failed. Check profile ID and authentication header.","trace":"PMNT0706.653A079E.0000091A","success":false,"payment_url":null}  

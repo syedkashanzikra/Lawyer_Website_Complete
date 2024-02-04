@@ -1,0 +1,127 @@
+.header-left{
+    max-width: 140px !important;
+    width: 100%;
+}
+.navbar-brand {
+    display: block;
+}
+img{
+    width: 100%;
+}
+
+.features-section .features-preview img
+{
+    width: 100%;
+}
+
+.navbar-brand img.landing_logo
+{
+    width: 100%;
+    height: 30px;
+}
+
+.container img.landing_logo
+{
+    width: 100%;
+    height: 30px;
+}
+
+.features-section .features-preview{
+    max-width: 80%;
+    margin: 0 auto -390px;
+}
+.img-wrapper{
+    position: relative;
+    padding-top: 50%;
+    width: 100%;
+}
+.img-wrapper img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*object-fit: scale-down;*/
+    display: block;
+    margin: 0 !important;
+}
+.features-preview .img-fluid{
+    border-radius: 15px;
+}
+.screenshot-card  h5{
+    margin-top: 20px;
+}
+
+.screenshot-card  .img-wrapper{
+    margin-bottom: 20px;
+    padding-top: 60% ;
+}
+
+.footer-logo a{
+    display: block;
+    max-width: 180px;
+    width: 100%;
+}
+
+.announcement p {
+    margin-bottom: 0rem !important;
+}
+
+.img-wrapper{
+box-shadow: 0 0.125rem 1rem 1px rgb(0 0 0 / 11%) !important;
+    border-radius: 10px;
+}
+html[dir="rtl"] .container-offset{
+    margin-right: calc((100% - 1540px) / 2);
+    margin-left: 0;
+    padding-right: 15px;
+    padding-left: 0;
+}
+html[dir="rtl"]  .main-banner .dash-preview{
+right: 0;
+    left: -80px;
+}
+
+@media (max-width:1500px) {
+    .container {
+        max-width: 1320px;
+    }
+    .main-banner .container-offset{
+        margin-left: calc((100% - 1320px) / 2);
+    }
+    html[dir="rtl"] .container-offset{
+        margin-right: calc((100% - 1320px) / 2);
+    }
+}
+
+@media (max-width:1260px) {
+    .main-banner .container-offset{
+        margin-left: 0;
+    }
+    html[dir="rtl"] .container-offset{
+        margin-right:0;
+    }
+}
+@media (max-width:991px) {
+    html[dir="rtl"] .main-banner .dash-preview{
+        left:-15px;
+    }
+}
+@media (max-width:767px){
+    html[dir="rtl"] .main-banner .dash-preview{
+        left:0;
+    }
+    .container-offset{
+        padding: 0 15px !important;
+    }
+}
+body.landing-dark .bg-gray-100{
+    background: linear-gradient(141.55deg, #22242C 3.46%, #22242C 99.86%);
+    color: var(--bs-body-color);
+}
+body.landing-dark  .site-footer .footer-row .ftr-col .list-unstyled li a{
+    color: var(--bs-body-color);
+}
+body.landing-dark  .site-footer{
+    border-top: 1px solid #9d9d9d4a;
+}

@@ -1,0 +1,77 @@
+<?php
+
+namespace Lahirulhr\PayHere\Helpers;
+
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
+use Lahirulhr\PayHere\Exceptions\PayHereException;
+
+class PayHereRestClient
+{
+    protected $url;
+    protected $form_data = [];
+    protected $method = "post";
+
+    public function withData(array $data)
+    {
+        $this->form_data = $data;
+
+        return $this;
+    }
+
+    public function getAccessToken()
+    {
+        $url = config('payhere.api_endpoint') . "merchant/v1/oauth/token";
+        $data = Http::asForm()->withToken($this->generateAuthCode(), 'Basic')
+            ->post($url, [
+                'grant_type' => 'client_credentials',
+            ]);
+
+        return $data->json()['access_token'] ?? null;
+    }
+
+    public function generateAuthCode()
+    {
+        return base64_encode(config('payhere.app_id') . ":" . config('payhere.app_secret'));
+    }
+
+    public function cachedAccessToken()
+    {
+        return Cache::remember('payhere-access-token', now()->addSeconds(560), function () {
+            return $this->getAccessToken();
+        });
+    }
+
+    /**
+     * @throws PayHereException
+     */
+    public function submit()
+    {
+        if ($this->method == "post") {
+            $client = Http::asJson()
+                ->withToken($this->cachedAccessToken())
+                ->post(config('payhere.api_endpoint') . $this->url, $this->form_data);
+        } else {
+            $client = Http::withToken($this->cachedAccessToken())
+                ->get(config('payhere.api_endpoint') . $this->url, $this->form_data);
+        }
+
+
+        $output = $client->json();
+
+        if (! $output) {
+            throw new PayHereException("No data from API !");
+        }
+
+        if (array_key_exists('error', $output)) {
+            throw new PayHereException($output['error_description']);
+        }
+
+
+        if (array_key_exists('status', $output) && $output['status'] < 0) {
+            throw new PayHereException($output['msg']);
+        }
+
+        return $output;
+    }
+}
